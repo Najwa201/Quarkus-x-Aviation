@@ -12,10 +12,7 @@ import java.util.List;
 public class FlotteResource {
 
     @GET
-    public List<String> getFlotte() {
-        return List.of(
-            "Air France - A320 x10",
-            "Emirates - B777 x5"
-        );
+    public List<Flotte> get() {
+        return Flotte.listAll();
     }
 }

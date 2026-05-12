@@ -1,5 +1,7 @@
 package org.acme.aviation;
 
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -11,8 +13,12 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class CompagnieResource {
 
+    @Inject
+    EntityManager em;
+
     @GET
-    public List<String> get() {
-        return List.of("Air France", "Emirates");
+    public List<Compagnie> getAll() {
+        return em.createQuery("SELECT c FROM Compagnie c", Compagnie.class)
+                .getResultList();
     }
 }

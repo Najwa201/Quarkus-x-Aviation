@@ -12,7 +12,12 @@ import java.util.List;
 public class AvionResource {
 
     @GET
-    public List<String> getAvions() {
-        return List.of("A320 Airbus", "B777 Boeing", "A380 Airbus");
+    public List<Avion> get() {
+        return Avion.listAll();
     }
+}
+@GET
+@Path("/count")
+public long count() {
+    return Avion.count();
 }

@@ -1,6 +1,28 @@
--- This file allow to write SQL commands that will be emitted in test and dev.
--- The commands are commented as their support depends of the database
--- insert into myentity (id, field) values(1, 'field-1');
--- insert into myentity (id, field) values(2, 'field-2');
--- insert into myentity (id, field) values(3, 'field-3');
--- alter sequence myentity_seq restart with 4;
+
+
+-- COMPAGNIES
+INSERT INTO COMPAGNIES_AERIENNES (ID_COMPAGNIE, NOM) VALUES
+('AF','Air France'),
+('EK','Emirates'),
+('BA','British Airways'),
+('LH','Lufthansa');
+
+-- AVIONS
+INSERT INTO AVIONS_LIGNE (
+ID_AL, ID_ALFULL, CONSTRUCTEUR, FAMILLE, SERIE, MODELE,
+NBREMOTEURS, ID_MOTEUR, ENVERGURE, LONGUEUR, HAUTEUR,
+LARGEURFUSELAGE, LARGEURCABINE, NBREPASSMIN, NBREPASSMAX,
+VOLUMECARGO, LD3, MISEENSERVICE
+) VALUES
+('AL1','A350-800','Airbus','350','100','800',2,'M7',64.75,60.64,17.05,5.96,5.61,276,312,0,28,DATE '2000-01-01'),
+('AL2','B777-300ER','Boeing','777','300','300ER',2,'M1',64.80,73.90,18.50,6.20,5.87,365,550,216,0,DATE '2000-01-01');
+
+-- FLOTTES
+INSERT INTO FLOTTES_PASSAGERS VALUES
+('FP1','AF','AL2',39),
+('FP2','EK','AL2',102),
+('FP3','BA','AL2',12);
+
+-- MOTEURS
+INSERT INTO MOTEURS VALUES
+('M1','GE90-115B','Turboréacteur','General Electric','GE90','','115B',512.00,7289);
